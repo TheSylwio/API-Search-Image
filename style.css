@@ -23,7 +23,12 @@ form.box {
     align-items: center;
     flex-direction: column;
     padding: 0.5rem;
-    margin-top: 1rem;
+    margin: 1rem;
+}
+
+form.box label {
+    text-align: center;
+    padding-top: 1rem;
 }
 
 form.box input {
@@ -54,4 +59,9 @@ section.photoContainer img {
 section.photoContainer img:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+
+.alert {
+    color: red;
+    font-size: 16px;
 }

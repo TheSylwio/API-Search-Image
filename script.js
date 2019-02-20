@@ -19,19 +19,28 @@ form.addEventListener('submit', (event) => {
         .then(response => {
             const photos = response.photos;
 
-            photos.forEach(photo => {
-                const newPhoto = document.createElement('img');
-                newPhoto.src = photo.src.square;
+            if (!photos.length) {
+                const errorInfo = document.createElement('div');
+                errorInfo.className = 'alert';
+                errorInfo.innerHTML = `We didn't found what you've expected :(`;
 
-                fragment.appendChild(newPhoto);
-            })
-            setTimeout(() => {
-                while (photoContainer.hasChildNodes()) {
-                    photoContainer.removeChild(photoContainer.lastChild);
-                }
+                photoContainer.appendChild(errorInfo);
+            } else {
+                photos.forEach(photo => {
+                    const newPhoto = document.createElement('img');
+                    newPhoto.src = photo.src.square;
 
-                photoContainer.appendChild(fragment)
-            }, 800);
+                    fragment.appendChild(newPhoto);
+                })
 
+                setTimeout(() => {
+                    while (photoContainer.hasChildNodes()) {
+                        photoContainer.removeChild(photoContainer.lastChild);
+                    }
+
+                    photoContainer.appendChild(fragment)
+                }, 600);
+            }
+            input.value = '';
         });
 });
