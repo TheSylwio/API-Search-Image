@@ -4,6 +4,12 @@ const form = document.querySelector('form');
 const photoContainer = document.querySelector('.photoContainer');
 const fragment = document.createDocumentFragment();
 
+const clear = () => {
+    while (photoContainer.hasChildNodes()) {
+        photoContainer.removeChild(photoContainer.lastChild);
+    }
+}
+
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -20,6 +26,8 @@ form.addEventListener('submit', (event) => {
             const photos = response.photos;
 
             if (!photos.length) {
+                clear();
+
                 const errorInfo = document.createElement('div');
                 errorInfo.className = 'alert';
                 errorInfo.innerHTML = `We didn't found what you've expected :(`;
@@ -34,9 +42,7 @@ form.addEventListener('submit', (event) => {
                 })
 
                 setTimeout(() => {
-                    while (photoContainer.hasChildNodes()) {
-                        photoContainer.removeChild(photoContainer.lastChild);
-                    }
+                    clear();
 
                     photoContainer.appendChild(fragment)
                 }, 600);

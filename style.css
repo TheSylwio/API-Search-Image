@@ -7,6 +7,7 @@ html, body {
     font-size: 41px;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 main.container {
@@ -28,7 +29,6 @@ form.box {
 
 form.box label {
     text-align: center;
-    padding-top: 1rem;
 }
 
 form.box input {
@@ -41,7 +41,7 @@ form.box input {
     padding: 0.5rem;
 }
 
-section.photoContainer {
+.photoContainer {
     width: 85vw;
     display: flex;
     justify-content: center;
@@ -49,16 +49,17 @@ section.photoContainer {
     flex-wrap: wrap;
 }
 
-section.photoContainer img {
+.photoContainer img {
     margin: 20px;
     width: 200px;
     border: 1px solid black;
-    transition: transform .2s linear;
+    border-radius: 3px;
+    transition: transform .2s ease-in-out;
 }
 
-section.photoContainer img:hover {
+.photoContainer img:hover {
     cursor: pointer;
-    transform: scale(1.2);
+    transform: rotate(5deg) scale(1.1);
 }
 
 .alert {
