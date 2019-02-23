@@ -7,10 +7,10 @@ html, body {
     font-size: 41px;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
-main.container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@ main.container {
     height: 100vh;
 }
 
-form.box {
+.box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,11 +27,11 @@ form.box {
     margin: 1rem;
 }
 
-form.box label {
+.box label {
     text-align: center;
 }
 
-form.box input {
+.box input {
     font-size: 21px;
     border: 2px solid gray;
     border-radius: 15px;
@@ -49,17 +49,15 @@ form.box input {
     flex-wrap: wrap;
 }
 
-.photoContainer img {
+.photoContainer .photo {
     margin: 20px;
     width: 200px;
-    border: 1px solid black;
     border-radius: 3px;
     transition: transform .2s ease-in-out;
 }
 
-.photoContainer img:hover {
+.photoContainer .photo:hover {
     cursor: pointer;
-    transform: rotate(5deg) scale(1.1);
 }
 
 .alert {

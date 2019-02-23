@@ -10,6 +10,10 @@ const clear = () => {
     }
 }
 
+ScrollReveal().reveal('.box', {
+    delay: 400
+});
+
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -36,16 +40,19 @@ form.addEventListener('submit', (event) => {
             } else {
                 photos.forEach(photo => {
                     const newPhoto = document.createElement('img');
+                    newPhoto.className = 'photo';
                     newPhoto.src = photo.src.square;
 
                     fragment.appendChild(newPhoto);
                 })
 
-                setTimeout(() => {
-                    clear();
+                clear();
 
-                    photoContainer.appendChild(fragment)
-                }, 600);
+                photoContainer.appendChild(fragment)
+
+                ScrollReveal().reveal('.photo', {
+                    interval: 400
+                });
             }
             input.value = '';
         });
