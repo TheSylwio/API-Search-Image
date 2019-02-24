@@ -4,15 +4,17 @@ const form = document.querySelector('form');
 const photoContainer = document.querySelector('.photoContainer');
 const fragment = document.createDocumentFragment();
 
-const clear = () => {
+const clearContainer = () => {
     while (photoContainer.hasChildNodes()) {
         photoContainer.removeChild(photoContainer.lastChild);
     }
 }
 
-ScrollReveal().reveal('.box', {
-    delay: 400
-});
+window.onload = () => {
+    ScrollReveal().reveal('.box', {
+        delay: 400
+    });
+};
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -31,7 +33,7 @@ form.addEventListener('submit', (event) => {
             const photos = response.photos;
 
             if (!photos.length) {
-                clear();
+                clearContainer();
 
                 const errorInfo = document.createElement('div');
                 errorInfo.className = 'alert';
@@ -50,7 +52,7 @@ form.addEventListener('submit', (event) => {
                     fragment.appendChild(newPhoto);
                 })
 
-                clear();
+                clearContainer();
 
                 photoContainer.appendChild(fragment)
                 ScrollReveal().reveal('.photo', {
