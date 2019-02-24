@@ -2,11 +2,12 @@
 
 const form = document.querySelector('form');
 const photoContainer = document.querySelector('.photoContainer');
+const error = document.querySelector('.error');
 const fragment = document.createDocumentFragment();
 
-const clearContainer = () => {
-    while (photoContainer.hasChildNodes()) {
-        photoContainer.removeChild(photoContainer.lastChild);
+const clearContainer = (element) => {
+    while (element.hasChildNodes()) {
+        element.removeChild(element.lastChild);
     }
 }
 
@@ -33,13 +34,14 @@ form.addEventListener('submit', (event) => {
             const photos = response.photos;
 
             if (!photos.length) {
-                clearContainer();
+                clearContainer(error);
+                clearContainer(photoContainer)
 
                 const errorInfo = document.createElement('div');
                 errorInfo.className = 'alert';
                 errorInfo.innerHTML = `We didn't found what you've expected :(`;
 
-                photoContainer.appendChild(errorInfo);
+                error.appendChild(errorInfo);
                 ScrollReveal().reveal('.alert', {
                     delay: 300
                 });
@@ -52,9 +54,10 @@ form.addEventListener('submit', (event) => {
                     fragment.appendChild(newPhoto);
                 })
 
-                clearContainer();
+                clearContainer(error);
+                clearContainer(photoContainer);
 
-                photoContainer.appendChild(fragment)
+                photoContainer.appendChild(fragment);
                 ScrollReveal().reveal('.photo', {
                     interval: 300
                 });

@@ -24,7 +24,7 @@ html, body {
     align-items: center;
     flex-direction: column;
     padding: 0.5rem;
-    margin: 3rem;
+    margin-top: 2rem;
 }
 
 .box .logo {
@@ -46,6 +46,7 @@ html, body {
 }
 
 .photoContainer {
+    margin: 2.5rem 0;
     width: 85vw;
     display: flex;
     justify-content: center;
@@ -65,6 +66,7 @@ html, body {
 }
 
 .alert {
+    visibility: hidden;
     color: red;
     font-size: 16px;
 }
