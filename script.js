@@ -17,12 +17,13 @@ ScrollReveal().reveal('.box', {
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const input = document.querySelector('.input')
-    const query = `https://api.pexels.com/v1/search?query=${input.value}&per_page=12`;
+    const input = document.querySelector('.input');
+    const query = `https://api.pexels.com/v1/search?query=${input.value}&per_page=30`;
+    const apiKey = '563492ad6f9170000100000161dafe4a1eac42ac92998fd9c6afa656';
 
     fetch(query, {
             headers: {
-                'Authorization': '563492ad6f9170000100000161dafe4a1eac42ac92998fd9c6afa656'
+                Authorization: `${apiKey}`
             }
         })
         .then(response => response.json())
@@ -37,6 +38,9 @@ form.addEventListener('submit', (event) => {
                 errorInfo.innerHTML = `We didn't found what you've expected :(`;
 
                 photoContainer.appendChild(errorInfo);
+                ScrollReveal().reveal('.alert', {
+                    delay: 300
+                });
             } else {
                 photos.forEach(photo => {
                     const newPhoto = document.createElement('img');
@@ -49,9 +53,8 @@ form.addEventListener('submit', (event) => {
                 clear();
 
                 photoContainer.appendChild(fragment)
-
                 ScrollReveal().reveal('.photo', {
-                    interval: 400
+                    interval: 300
                 });
             }
             input.value = '';
