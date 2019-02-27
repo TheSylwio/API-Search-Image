@@ -21,14 +21,16 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const input = document.querySelector('.input');
+
     const query = `https://api.pexels.com/v1/search?query=${input.value}&per_page=30`;
     const apiKey = '563492ad6f9170000100000161dafe4a1eac42ac92998fd9c6afa656';
+    const options = {
+        headers: {
+            Authorization: `${apiKey}`
+        }
+    };
 
-    fetch(query, {
-            headers: {
-                Authorization: `${apiKey}`
-            }
-        })
+    fetch(query, options)
         .then(response => response.json())
         .then(response => {
             const photos = response.photos;
