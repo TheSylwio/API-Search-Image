@@ -51,7 +51,7 @@ form.addEventListener('submit', (event) => {
                 photos.forEach(photo => {
                     const newPhoto = document.createElement('img');
                     newPhoto.className = 'photo';
-                    newPhoto.src = photo.src.square;
+                    newPhoto.src = photo.src.tiny;
 
                     fragment.appendChild(newPhoto);
                 })
