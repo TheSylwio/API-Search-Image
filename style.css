@@ -1,78 +1,78 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 41px;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
+  font-size: 41px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 0.5rem;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5rem;
+  margin-top: 2rem;
 }
 
 .box .logo {
-    width: 150px;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+  width: 150px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .box label {
-    text-align: center;
+  text-align: center;
 }
 
 .box input {
-    font-size: 21px;
-    border: 2px solid gray;
-    border-radius: 15px;
-    margin: 0.25rem;
-    outline: 0;
-    height: 1rem;
-    padding: 0.5rem;
+  font-size: 21px;
+  border: 2px solid gray;
+  border-radius: 15px;
+  margin: 0.25rem;
+  outline: 0;
+  height: 1rem;
+  padding: 0.5rem;
 }
 
 .photoContainer {
-    margin: 2.5rem 0;
-    width: 85vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  margin: 2.5rem 0;
+  width: 85vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .photoContainer .photo {
-    margin: 20px;
-    width: 200px;
-    border-radius: 3px;
-    transition: transform .2s ease-in-out;
+  margin: 20px;
+  width: 200px;
+  border-radius: 3px;
+  transition: transform 0.2s ease-in-out;
 }
 
 .photoContainer .photo:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.alert {
-    visibility: hidden;
-    color: red;
-    font-size: 16px;
+.error {
+  visibility: hidden;
+  color: red;
+  font-size: 16px;
 }
