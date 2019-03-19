@@ -11,11 +11,22 @@ const clearContainer = (element) => {
     }
 }
 
-window.onload = () => {
-    ScrollReveal().reveal('.box', {
-        delay: 400
-    });
-};
+const revealElement = (element, delayTime, intervalTime) => {
+    ScrollReveal().reveal(element, {
+        delay: delayTime,
+        interval: intervalTime
+    })
+}
+
+const showError = (description) => {
+    const errorInfo = document.createElement('div');
+    errorInfo.className = 'error';
+    errorInfo.innerHTML = `${description}`;
+}
+
+window.addEventListener('load', () => {
+    revealElement('.box', 400, 0);
+})
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -37,16 +48,12 @@ form.addEventListener('submit', (event) => {
 
             if (!photos.length) {
                 clearContainer(error);
-                clearContainer(photoContainer)
+                clearContainer(photoContainer);
 
-                const errorInfo = document.createElement('div');
-                errorInfo.className = 'alert';
-                errorInfo.innerHTML = `We didn't found what you've expected :(`;
+                showError(`We didn't found what you've expected :(`);
 
-                error.appendChild(errorInfo);
-                ScrollReveal().reveal('.alert', {
-                    delay: 300
-                });
+                form.appendChild(errorInfo);
+                revealElement('.alert', 300, 0);
             } else {
                 photos.forEach(photo => {
                     const newPhoto = document.createElement('img');
@@ -60,9 +67,7 @@ form.addEventListener('submit', (event) => {
                 clearContainer(photoContainer);
 
                 photoContainer.appendChild(fragment);
-                ScrollReveal().reveal('.photo', {
-                    interval: 300
-                });
+                revealElement('.photo', 0, 300);
             }
             input.value = '';
         });
